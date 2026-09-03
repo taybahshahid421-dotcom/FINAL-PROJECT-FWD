@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="description" content="Student Study Planner - organize subjects, tasks and study progress.">
+
+    <title>Student Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+                <!-- NAVBAR -->
+    <header class="site-header">
+        <nav class="navbar container">
+            <a href="#home" class="logo">Study <span> Planner</span> </a>
+          
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                ☰
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#planner">Planner</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#progress">Progress</a></li>
+            </ul>
+        </nav>
+    </header>
+
+         <main>
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="eyebrow"> YOUR SMART STUDY COMPANION</p>
+                    
+                    <h1>
+                        Plan your study.<br>
+                        <span>Achieve your goals.</span>
+                    </h1>
+                    <p class="hero-description">Organize assignments, manage subjects, track completed work,and stay focused  with one simple study planner.</p>
+                            <div class="hero-actions"<a href="#planner" class="btn btn-primary">Start planning </a>          
+                        <a href="#subjects" class="btn btn-secondary"> Explore Subjects</a>
+                        
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-top">
+                        <div>
+                            <p class="small-label"> TODAY'S FOCUS    </p>
+                            <h3> Stay consistent </h3>
+                            
+                        </div>
+                        <span class="hero"-icon> </span>
+                    
+                    </div>
+                    <div class="mini-progress">
+                        <div id="heroProgressBar"></div>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div>
+                            <strong id="heroCompleted">0</strong>
+                            <span>Completed</span>
+                        </div>
+                        <div>
+                            <strong id="heroTotal">0</strong>
+                            <span>Total Tasks</span>
+                        </div>
+                        <div>
+                            <strong id="heroPercent">0%</strong>
+                            <span>Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+           <!--  DASHBOARD -->
+        <section class="dashboard section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow"> QUICK OVERVIEW</p>
+                    
+                    <h2> Your Study Dashboard</h2>
+                    <p>See your current study activity at a glance.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-icon purple"></div> 
+                        
+                        <div>
+                            <span>Total Subjects</span>
+                            <strong id="subjectCount">0</strong>
+                        </div>
+
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon blue"></div> 
+                         
+                        <div>
+                            <span>Total Tasks</span>
+                            <strong id="taskCount">0</strong>
+                        </div>
+
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon green"></div> 
+                                                                      
+                        <div>
+                            <span>Completed</span>
+                            <strong id="completedCount">0</strong>
+                        </div>
+
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon orange"></div>
+                        <div>
+                            <span>Pending</span>
+                            <strong id="pendingCount">0</strong>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+                <!-- PLANNER -->
+        <section id="planner" class="section planner-section">
+            <div class="container">
+                <div class="section-heading">
+
+                    <p class="eyebrow"> STUDY PLANNER</p>
+
+                <h2> Add & Manage Tasks</h2>    
+                    <p>Create a task, choose its subject, due date and priority. </p>
+                </div>
+                <div class="planner-layout">
+                <!-- FORM -->
+                   
+                    <div class="form-card">
+                        <h3>Add New Task </h3>
+                        <p class="form-note">Fill in the details below.  </p>
+                       
+                        <form id="taskForm">
+                            <div class="form-group">
+                                <label for="taskName">Task Name</label>
+                <input type="text" id="taskName" placeholder="e.g. Complete HTML assignment"  required>
+                               
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+
+                                    <label for="taskSubject">Subject</label>
+                                    <select id="taskSubject" required>
+
+                                        <option value="Select subject">select subject</option>
+                                        <option value="Web Development"> Web Development</option>
+                                        <option value="Programming">Programming</option>
+                                        <option value="Database">Database</option>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Physics">Physics</option>
+                                        <option value="Islamic">Islamic</option>
+                                        <option value="Other"> Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="taskDate"> Due Date </label>
+                                    <input type="date" id="taskDate" required >
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskPriority">Priority</label>
+                                 
+                                <select id="taskPriority" required>
+
+                                    <option value="Select priority">Select priority</option>
+                                    <option value="High"> High</option> 
+                                    <option value="Medium">Medium</option>
+                                    <option value="Low">Low</option>
+      </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary full-width" >+ Add Task</button>
+                            
+                        </form>
+                    </div>
+
+                    <!-- TASKS -->
+                    <div class="tasks-card">
+                        <div class="tasks-header">
+                          <div>
+                                <h3>My Tasks</h3>
+                                <p>  Keep your work organized.</p>
+                                
+                            </div>
+                            <select id="taskFilter" class="filter-select">
+
+                                <option value="all"> All Tasks</option>
+                                <option value="pending">Pending </option>
+                                <option value="completed">Completed </option>
+                                   
+                            </select>
+                        </div>
+                        <div id="taskContainer" class="task-list">
+                            <div id="emptyMessage" class="empty-state">
+                                <div class="empty-icon"></div>
+                                <h4>No tasks yet </h4>
+                                <p>Add your first study task using the form. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!--  SUBJECTS  -->
+        <section id="subjects" class="section subjects-section">
+
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">YOUR LEARNING AREAS</p>
+                
+                    <h2> Popular Subjects</h2>
+                    <p>Build your study routine around the subjects you are learning.</p>
+                    
+                </div>
+                <div class="subject-grid">
+                    <article class="subject-card">
+                        <div class="subject-icon"> </div>
+             <h3>Web Development</h3>
+             <p>HTML, CSS, JavaScript and responsive websites.</p>
+             
+                        <span>Frontend </span>
+                        
+                    </article>
+                    <article class="subject-card"></div>
+                       
+                        <h3> Programming</div>
+                        <p> Practice logic, algorithms and programming concepts.</p>
+                        
+                        <span>Practice </span>
+                      
+                    </article>
+                    <article class="subject-card">
+                        <div class="subject-icon"></div>
+                        
+                        <h3>  Database  </h3>
+                        <p>  Learn how data is stored, managed and organized. </p>
+                       
+                        <span>Data</span>
+                    </article>
+                    <article class="subject-card">
+                        <div class="subject-icon"></div>
+                            
+                     <h3>Mathematics</h3>
+                        <p>Improve problem solving with regular practice. </p>
+                       
+                        <span>Practice</span>
+                       
+                    </article>
+                </div>
+            </div>
+        </section>
+
+                <!--  PROGRESS  -->
+           <section id="progress" class="section progress-section">
+
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">TRACK YOUR GROWTH </p>
+                      
+                    <h2> Study Progress</h2>
+                    <p>Complete tasks and watch your progress improve.</p>
+                        
+                </div>
+                <div class="progress-card">
+                    <div class="progress-top">
+
+                        <div>
+                            <span class="progress-label">
+                                Overall completion
+                            </span>
+                            <h3 id="progressText"> 0%</h3>
+                             
+                        </div>
+                        <div  class="progress-circle" id="progressCircle"  [10:52 pm, 24/08/2026] Taybah💓:>0%</div>
+                          
+                    </div>
+
+                    <div class="progress-track">
+                        <div id="progressFill"></div>
+                    </div>
+
+                    <div class="progress-message" id="progressMessage"> Start adding tasks to begin your progress.</div>
+                       
+                </div>
+            </div>
+        </section>
+
+                <!-- TIPS !-->
+        <section class="tips-section">
+
+            <div class="container tips-box">
+                <div>
+
+                    <p class="eyebrow"> SMART STUDY HABITS </p> 
+                    <h2>    Small steps make big results.    </h2>
+                </div>
+                <div class="tips-list">
+
+                    <p> Set clear daily goals.</p>
+                    <p> Finish high-priority work first.</p>
+                    <p> Take short breaks.</p>
+                    <p> Review your progress regularly.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+                          <!-- FOOTER  -->
+        <footer class="footer">
+
+        <div class="container footer-content">
+            <div>
+                <a href="#home" class="logo footer-logo">  Study<span>Planner</span>  </a>
+                    <p> Student Study Planner — Frontend Web Development Project. </p>
+                
+            </div>
+            <p>© 2026 Student Study Planner. All rights reserved.</p>
+             
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+<script scr="script.js"></script>
+                          
+</body>
+</html>
